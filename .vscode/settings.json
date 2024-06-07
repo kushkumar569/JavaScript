@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/06_dom/three.html"
+    "livePreview.defaultPreviewPath": "/06_dom/three.html",
+    "liveServer.settings.port": 5501
 }
