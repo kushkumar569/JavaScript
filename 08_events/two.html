@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayHitesh = function(){
+        console.log("Hitesh");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+
+    // here text will be change after 2 sec. 2000ms.
+    const change = setTimeout(changeText,2000);
+    
+    // don't do that becouse just after start it clearinterval so, nothing changes.so,use below option.
+    // clearTimeout(change); 
+
+    // before change happen if you click on stop button than nothing change, becouse settimeout clear before start.
+    document.querySelector("#stop").addEventListener('click',function(){
+        clearTimeout(change);    // uee to stop set timeout.
+        console.log("stopped");
+    });
+</script>
+</html>
