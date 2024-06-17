@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body style="background-color: #212121;color: rgb(194, 155, 155);">
+    // we use XMLHttp ready state constructor.
+    <h1>
+        0 -> UNSENT Client has been created. open() not called yet.<br>
+        1 -> OPENED open() has been called.<br>
+        2 ->HEADERS_RECEIVED send() has been called, and headers and status are available.<br>
+        3 ->LOADING Downloading; responseText holds partial data.<br>
+        4 ->DONE The operation is complete.>
+    </h1>
+</body>
+<script>
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    // use to send and reseive request. and we declear a new object.
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl) //open() use to send request.
+    xhr.onreadystatechange = function () {  // continuous check state .
+        console.log(xhr.readyState); // use to check state(return status) .i.e:- if it is 1 than it is in open() state.
+        if (xhr.readyState === 4) {         // 4 means DONE() status.
+            const data = JSON.parse(this.responseText)      // store in data but it is in String so, convert it in JSON(type of object).
+            console.log(typeof data);           // type is object.
+            console.log(data.followers);     // print all follower of that person of called by API.
+        }
+    }
+    xhr.send();
+</script>
+
+</html>
