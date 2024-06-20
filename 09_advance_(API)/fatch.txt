@@ -1,0 +1,18 @@
+1.  JS has 2 kinds of memory.
+        a). heap(store variables) b). stack(used to call function and fatch and API/setTimeout etc.
+2.  when we call a SetTimeout/SetInterval function it take some time based on it's given value after that each SetTimeout/SetInterval
+    are gone to Queues and First come first execute opetaion done and move to top of the stack and excuted first before the all program. see screensort.
+3.  when fatch() is called it's executed first than anything it's goes to the priority queue and executed on the First come first execute opetaion done and 
+    move to top of the stack and excuted. (see screenshot).
+
+4.  when a fatch operation is called thann simultaneously two process is executed.
+    a). data:- that has a array type variables that store all data comes from the API. it's two types.
+          I>  OnFulfilled[]:- it stores all the information comes from the then operatinon also it store the failure as value. like error 404 etc. 
+              becouse it's kind of "response" send back after network request is send successfully.
+          II> OnRejection[]:- it's store all the catch information. it store when the network fail to send the request.
+
+    b). WebBrowser/API:- it's work as a send a network request and process it and gives back a what response is sended. if network request is send 
+        and whatever response is sended Either success or failure it store to the OnFulfilled[]. and if network request not sended than it's value store to the OnRejection[].
+
+5. after that all the value store at a  OnFulfilled[](if network request successful) and in the OnRejection[](if failure to send network request).
+   store data is store back to the variable that it assigned.
