@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            //requirement.  :> It's commonly used in event handlers to ensure the correct this context
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))     // here we bind the on handleclick button, this means all the variable
+                                                    // and method of React is called. and used
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server);
+        }
+    }
+
+    const app = new React()
+
+/*
+    function greet() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+
+    const person = {
+        name: 'Alice'
+    };
+
+    const boundGreet = greet.bind(person);
+    boundGreet(); // Hello, my name is Alice
+
+*/
+</script>
+</html>
